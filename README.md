@@ -14,11 +14,25 @@ Visual Studio is closing.
 See the [change log](CHANGELOG.md) for changes and road map.
 
 ## Features
+When Visual Studio closes or the current solution is being manually closed,
+this extension will perform clean up.
 
-- Closes all open documents when:
-  - The solution closes
-  - Visual Studio is closing
+- Closes all open documents
+- Collapses nodes in Solution Explorer
+- Super fast - you won't even notice it
 
+### Close open documents
+All open documents will be closed when the solution closes. This makes
+solution load faster for the next time you open it.
+
+### Collapse nodes in Solution Explorer
+Projects and solutions can quickly become noisy to look at when folders
+and nested files are expanded in Solution Explorer. 
+
+This extension automatically collapses all expanded nodes except for
+project nodes. 
+
+![Before and after](art\before-after.png)
 
 ## Contribute
 Check out the [contribution guidelines](.github./CONTRIBUTING.md)

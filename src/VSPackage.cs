@@ -21,6 +21,7 @@ namespace CloseAllTabs
             var dte = await GetServiceAsync(typeof(DTE)) as DTE2;
 
             CloseOpenDocuments.Initialize(dte);
+            CollapseFolders.Initialize(dte);
         }
     }
 }

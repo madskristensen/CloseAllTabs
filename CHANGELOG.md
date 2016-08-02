@@ -1,6 +1,6 @@
 # Road map
 
-- [ ] Collapse folders in projects
+- [ ] Nothing yet...
 
 Features that have a checkmark are complete and available for
 download in the
@@ -16,3 +16,4 @@ on the official Visual Studio extension gallery.
 **2016-08-02**
 
 - [x] Close open documents
+- [x] Collapse Solution Explorer

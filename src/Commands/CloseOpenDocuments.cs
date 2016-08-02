@@ -6,17 +6,13 @@ namespace CloseAllTabs
     public class CloseOpenDocuments
     {
         private DTE2 _dte;
-        private DTEEvents _dteEvents;
         private SolutionEvents _solEvents;
 
         private CloseOpenDocuments(DTE2 dte)
         {
             _dte = dte;
 
-            _dteEvents = _dte.Events.DTEEvents;
             _solEvents = _dte.Events.SolutionEvents;
-
-            //_dteEvents.OnBeginShutdown += Execute;
             _solEvents.BeforeClosing += Execute;
         }
 
