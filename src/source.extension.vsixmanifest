@@ -3,7 +3,7 @@
     <Metadata>
         <Identity Id="55640f47-34bc-436b-8820-e7f64fbb31fc" Version="1.0" Language="en-US" Publisher="Mads Kristensen" />
         <DisplayName>Clean on Close</DisplayName>
-        <Description xml:space="preserve">Closes open documents and collapses folders automatically when a solution is being closed</Description>
+        <Description xml:space="preserve">Cleans up the solution for the next time you open it. Closes open documents and collapses folders automatically when a solution is being closed. </Description>
         <MoreInfo>https://github.com/madskristensen/CloseAllTabs</MoreInfo>
         <License>Resources/LICENSE</License>
         <ReleaseNotes>https://github.com/madskristensen/CloseAllTabs/blob/master/CHANGELOG.md</ReleaseNotes>

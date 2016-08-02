@@ -7,8 +7,9 @@ or get the [CI build](http://vsixgallery.com/extension/55640f47-34bc-436b-8820-e
 
 ---------------------------------------
 
-Closes all open documents when the solution is closing or when
-Visual Studio is closing.
+Cleans up the solution for the next time you open it. 
+Closes open documents and collapses folders automatically when
+a solution is being closed.
 
 See the [change log](CHANGELOG.md) for changes and road map.
 
