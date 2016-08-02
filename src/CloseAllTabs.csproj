@@ -48,6 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\SolutionExplorerFocus.cs" />
     <Compile Include="Commands\CollapseFolders.cs" />
     <Compile Include="Commands\CloseOpenDocuments.cs" />
     <Compile Include="Options.cs">

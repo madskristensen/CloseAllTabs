@@ -22,6 +22,7 @@ namespace CloseAllTabs
 
             CloseOpenDocuments.Initialize(dte, options);
             CollapseFolders.Initialize(dte, options);
+            SolutionExplorerFocus.Initialize(dte, options);
         }
     }
 }

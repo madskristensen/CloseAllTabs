@@ -19,6 +19,7 @@ this extension will perform clean up.
 
 - Closes all open documents
 - Collapses nodes in Solution Explorer
+- Activates Solution Explorer
 - Super fast - you won't even notice it
 
 ### Close open documents
@@ -33,6 +34,15 @@ This extension automatically collapses all expanded nodes except for
 project nodes. 
 
 ![Before and after](art/before-after.png)
+
+### Activates Solution Explorer
+Ensures that Solution Explorer is the active tool window when you open
+a solution.
+
+This is useful if you're tool window layout docks Solution Explorer
+with other tool windows in the same location.
+
+![Focus Solution Explorer](art/focus-solution-explorer.png)
 
 ### Settings
 Disable the individual features easily from the **Tools -> Options**

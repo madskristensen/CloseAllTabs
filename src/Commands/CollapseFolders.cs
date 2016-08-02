@@ -50,7 +50,7 @@ namespace CloseAllTabs
                 var project = item.Object as Project;
 
                 // Only collapse non-project nodes
-                if (project == null)
+                if (project == null || (project.Kind == ProjectKinds.vsProjectKindSolutionFolder && _options.CollapseSolutionFoldersOnClose))
                 {
                     item.UIHierarchyItems.Expanded = false;
                 }
