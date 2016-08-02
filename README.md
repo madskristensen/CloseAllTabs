@@ -2,8 +2,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/ukp6on6aji932y07?svg=true)](https://ci.appveyor.com/project/madskristensen/closealltabs)
 
-<!-- Update the VS Gallery link after you upload the VSIX-->
-Download this extension from the [VS Gallery](https://visualstudiogallery.msdn.microsoft.com/[GuidFromGallery])
+Download this extension from the [VS Gallery](https://visualstudiogallery.msdn.microsoft.com/97ffc3c6-f250-499a-b86b-833b3e55751e)
 or get the [CI build](http://vsixgallery.com/extension/55640f47-34bc-436b-8820-e7f64fbb31fc/).
 
 ---------------------------------------

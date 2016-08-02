@@ -5,13 +5,15 @@
         <DisplayName>Clean on Close</DisplayName>
         <Description xml:space="preserve">Closes open documents and collapses folders automatically when a solution is being closed</Description>
         <MoreInfo>https://github.com/madskristensen/CloseAllTabs</MoreInfo>
+        <License>Resources/LICENSE</License>
         <ReleaseNotes>https://github.com/madskristensen/CloseAllTabs/blob/master/CHANGELOG.md</ReleaseNotes>
         <Icon>Resources\Icon.png</Icon>
         <PreviewImage>Resources\Preview.png</PreviewImage>
         <Tags>tabs, cleanup, collapse</Tags>
     </Metadata>
     <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0]" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="14.0" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="15.0" />
     </Installation>
     <Dependencies>
         <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
