@@ -6,11 +6,13 @@ namespace CloseAllTabs
     public class CollapseFolders
     {
         private DTE2 _dte;
+        private Options _options;
         private SolutionEvents _solEvents;
 
-        private CollapseFolders(DTE2 dte)
+        private CollapseFolders(DTE2 dte, Options options)
         {
             _dte = dte;
+            _options = options;
 
             _solEvents = _dte.Events.SolutionEvents;
             _solEvents.BeforeClosing += Execute;
@@ -18,13 +20,16 @@ namespace CloseAllTabs
 
         public static CollapseFolders Instance { get; private set; }
 
-        public static void Initialize(DTE2 dte)
+        public static void Initialize(DTE2 dte, Options options)
         {
-            Instance = new CollapseFolders(dte);
+            Instance = new CollapseFolders(dte, options);
         }
 
         private void Execute()
         {
+            if (!_options.CollapseOnClose)
+                return;
+
             var hierarchy = _dte.ToolWindows.SolutionExplorer.UIHierarchyItems;
 
             try

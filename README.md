@@ -34,6 +34,12 @@ project nodes.
 
 ![Before and after](art\before-after.png)
 
+### Settings
+Disable the individual features easily from the **Tools -> Options**
+dialog.
+
+![Options](art/options.png)
+
 ## Contribute
 Check out the [contribution guidelines](.github./CONTRIBUTING.md)
 if you want to contribute to this project.

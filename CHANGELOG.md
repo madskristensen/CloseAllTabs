@@ -17,3 +17,4 @@ on the official Visual Studio extension gallery.
 
 - [x] Close open documents
 - [x] Collapse Solution Explorer
+- [x] Options page
