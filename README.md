@@ -35,6 +35,9 @@ project nodes.
 
 ![Before and after](art/before-after.png)
 
+Be default, solution folders are collapsed as well, but that can be
+changed in the options.
+
 ### Activates Solution Explorer
 Ensures that Solution Explorer is the active tool window when you open
 a solution.
