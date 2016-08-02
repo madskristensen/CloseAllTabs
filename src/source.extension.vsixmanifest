@@ -8,7 +8,7 @@
         <ReleaseNotes>https://github.com/madskristensen/CloseAllTabs/blob/master/CHANGELOG.md</ReleaseNotes>
         <Icon>Resources\Icon.png</Icon>
         <PreviewImage>Resources\Preview.png</PreviewImage>
-        <Tags>tabs, cleanup</Tags>
+        <Tags>tabs, cleanup, collapse</Tags>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0]" />

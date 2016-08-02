@@ -32,7 +32,7 @@ and nested files are expanded in Solution Explorer.
 This extension automatically collapses all expanded nodes except for
 project nodes. 
 
-![Before and after](art\before-after.png)
+![Before and after](art/before-after.png)
 
 ### Settings
 Disable the individual features easily from the **Tools -> Options**
