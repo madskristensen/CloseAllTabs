@@ -27,7 +27,7 @@ namespace CloseAllTabs
 
         private void Execute()
         {
-            if (!_options.CollapseOnClose)
+            if (!_options.CollapseOn)
                 return;
 
             var hierarchy = _dte.ToolWindows.SolutionExplorer.UIHierarchyItems;
@@ -50,7 +50,7 @@ namespace CloseAllTabs
                 var project = item.Object as Project;
 
                 // Only collapse non-project nodes
-                if (project == null || (project.Kind == ProjectKinds.vsProjectKindSolutionFolder && _options.CollapseSolutionFoldersOnClose))
+                if (project == null || (project.Kind == ProjectKinds.vsProjectKindSolutionFolder && _options.CollapseSolutionFolders))
                 {
                     item.UIHierarchyItems.Expanded = false;
                 }

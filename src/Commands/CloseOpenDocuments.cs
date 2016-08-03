@@ -27,7 +27,7 @@ namespace CloseAllTabs
 
         private void Execute()
         {
-            if (!_options.CloseDocumentsOnClose)
+            if (!_options.CloseDocuments)
                 return;
 
             var cmd = _dte.Commands.Item("Window.CloseAllDocuments");
