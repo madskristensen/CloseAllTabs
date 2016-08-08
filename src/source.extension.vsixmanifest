@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="55640f47-34bc-436b-8820-e7f64fbb31fc" Version="1.0" Language="en-US" Publisher="Mads Kristensen" />
-        <DisplayName>Clean on Close</DisplayName>
+        <Identity Id="55640f47-34bc-436b-8820-e7f64fbb31fc" Version="1.1" Language="en-US" Publisher="Mads Kristensen" />
+        <DisplayName>Clean Solution</DisplayName>
         <Description xml:space="preserve">Cleans up the solution for the next time you open it. Closes open documents and collapses folders automatically when a solution is being closed. </Description>
         <MoreInfo>https://github.com/madskristensen/CloseAllTabs</MoreInfo>
         <License>Resources/LICENSE</License>

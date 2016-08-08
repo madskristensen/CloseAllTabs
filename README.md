@@ -1,4 +1,4 @@
-# Clean on Close
+# Clean Solution
 
 [![Build status](https://ci.appveyor.com/api/projects/status/ukp6on6aji932y07?svg=true)](https://ci.appveyor.com/project/madskristensen/closealltabs)
 
