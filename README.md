@@ -20,6 +20,7 @@ this extension will perform clean up.
 - Closes all open documents
 - Collapses nodes in Solution Explorer
 - Activates Solution Explorer
+- Delete *bin* and *obj* folders
 - Super fast - you won't even notice it
 
 ### Close open documents
@@ -46,6 +47,19 @@ This is useful if you're tool window layout docks Solution Explorer
 with other tool windows in the same location.
 
 ![Focus Solution Explorer](art/focus-solution-explorer.png)
+
+### Delete *bin* and *obj* folders
+This options will delete *bin* and *obj* folders from all projects in
+the solution on close.
+
+**Note**, no files under source control will be deleted by this feature.
+
+The *bin* and *obj* folders are usually safe to delete since they
+are automatically generated when the solution/project is being build by
+Visual Studio/MSBuild.
+
+This feature is off by default, but can easily be enabled in the
+settings.
 
 ### Settings
 Disable the individual features easily from the **Tools -> Options**

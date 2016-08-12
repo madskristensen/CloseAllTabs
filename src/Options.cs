@@ -20,13 +20,19 @@ namespace CloseAllTabs
         [Category("Solution Explorer")]
         [DisplayName("Visible on open")]
         [Description("Makes sure Solution Explorer is visible when a solution is opened")]
-        [DefaultValue(true)]
-        public bool FocusSolutionExplorer { get; set; } = true;
+        [DefaultValue(false)]
+        public bool FocusSolutionExplorer { get; set; }
 
-        [Category("Documents")]
+        [Category("General")]
         [DisplayName("Close documents")]
         [Description("Close open all documents on close")]
         [DefaultValue(true)]
         public bool CloseDocuments { get; set; } = true;
+
+        [Category("General")]
+        [DisplayName("Delete bin and obj folder")]
+        [Description("Deletes the bin and obj folders on close unless they are under source control")]
+        [DefaultValue(false)]
+        public bool DeleteBinFolder { get; set; }
     }
 }

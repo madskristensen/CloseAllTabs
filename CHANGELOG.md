@@ -1,6 +1,6 @@
 # Road map
 
-- [ ] Nothing yet...
+- [x] Delete bin and obj folders on close
 
 Features that have a checkmark are complete and available for
 download in the
