@@ -52,7 +52,8 @@ with other tool windows in the same location.
 This options will delete *bin* and *obj* folders from all projects in
 the solution on close.
 
-**Note**, no files under source control will be deleted by this feature.
+**Note** that if any file under *bin* and *obj* is under source control,
+the folders won't be deleted.
 
 The *bin* and *obj* folders are usually safe to delete since they
 are automatically generated when the solution/project is being build by

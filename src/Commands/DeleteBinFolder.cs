@@ -35,31 +35,36 @@ namespace CloseAllTabs
             if (!_options.DeleteBinFolder)
                 return;
 
-            foreach (var project in GetAllProjects())
+            try
             {
-                var root = GetRootFolder(project);
-
-                if (root != null)
+                foreach (var project in GetAllProjects())
                 {
+                    var root = GetRootFolder(project);
+
+                    if (root == null)
+                        return;
+
                     string bin = Path.Combine(root, "bin");
                     string obj = Path.Combine(root, "obj");
 
                     DeleteFiles(bin, obj);
                 }
             }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Write(ex);
+            }
         }
 
         private void DeleteFiles(params string[] folders)
         {
-            foreach (var folder in folders)
-            {
-                foreach (var file in Directory.EnumerateFiles(folder, "*.*", SearchOption.AllDirectories))
-                {
-                    if (!_dte.SourceControl.IsItemUnderSCC(file))
-                        File.Delete(file);
-                }
+            var existingFolders = folders.Where(f => Directory.Exists(f));
 
-                if (!Directory.EnumerateFiles(folder, "*.*", SearchOption.AllDirectories).Any())
+            foreach (var folder in existingFolders)
+            {
+                var files = Directory.EnumerateFiles(folder, "*.*", SearchOption.AllDirectories);
+
+                if (!files.Any(f => f.EndsWith(".refresh") || _dte.SourceControl.IsItemUnderSCC(f)))
                     Directory.Delete(folder, true);
             }
         }

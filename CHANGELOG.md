@@ -1,6 +1,7 @@
 # Road map
 
 - [x] Delete bin and obj folders on close
+- [ ] Status bar indicator of the cleanup
 
 Features that have a checkmark are complete and available for
 download in the
