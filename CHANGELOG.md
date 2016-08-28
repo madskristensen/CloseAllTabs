@@ -1,6 +1,7 @@
 # Road map
 
 - [ ] Status bar indicator of the cleanup
+- [x] Option to collapse projects
 
 Features that have a checkmark are complete and available for
 download in the

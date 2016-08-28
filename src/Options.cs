@@ -5,24 +5,7 @@ namespace CloseAllTabs
 {
     public class Options : DialogPage
     {
-        [Category("Solution Explorer")]
-        [DisplayName("Collapse nodes")]
-        [Description("Collapse nodes in Solution Explorer on close")]
-        [DefaultValue(true)]
-        public bool CollapseOn { get; set; } = true;
-
-        [Category("Solution Explorer")]
-        [DisplayName("Collapse solution folders")]
-        [Description("Collapse solution folders when collapsing")]
-        [DefaultValue(true)]
-        public bool CollapseSolutionFolders { get; set; } = true;
-
-        [Category("Solution Explorer")]
-        [DisplayName("Visible on open")]
-        [Description("Makes sure Solution Explorer is visible when a solution is opened")]
-        [DefaultValue(false)]
-        public bool FocusSolutionExplorer { get; set; }
-
+        // General
         [Category("General")]
         [DisplayName("Close documents")]
         [Description("Close open all documents on close")]
@@ -34,5 +17,30 @@ namespace CloseAllTabs
         [Description("Deletes the bin and obj folders on close unless they are under source control")]
         [DefaultValue(false)]
         public bool DeleteBinFolder { get; set; }
-    }
+
+        // Solution Explorer
+        [Category("Solution Explorer")]
+        [DisplayName("Collapse files and folders")]
+        [Description("Collapse nodes in Solution Explorer on close")]
+        [DefaultValue(true)]
+        public bool CollapseOn { get; set; } = true;
+
+        [Category("Solution Explorer")]
+        [DisplayName("Collapse solution folders")]
+        [Description("Collapse solution folders when collapsing")]
+        [DefaultValue(true)]
+        public bool CollapseSolutionFolders { get; set; } = true;
+
+        [Category("Solution Explorer")]
+        [DisplayName("Collapse projects")]
+        [Description("Collapse all projects in a solution on close")]
+        [DefaultValue(false)]
+        public bool CollapseProjects { get; set; }
+
+        [Category("Solution Explorer")]
+        [DisplayName("Visible on open")]
+        [Description("Makes sure Solution Explorer is visible when a solution is opened")]
+        [DefaultValue(false)]
+        public bool FocusSolutionExplorer { get; set; }
+}
 }
