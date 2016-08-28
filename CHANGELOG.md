@@ -1,7 +1,6 @@
 # Road map
 
 - [ ] Status bar indicator of the cleanup
-- [x] Option to collapse projects
 
 Features that have a checkmark are complete and available for
 download in the
@@ -12,15 +11,15 @@ download in the
 These are the changes to each version that has been released
 on the official Visual Studio extension gallery.
 
-## 1.2
+## 1.3
 
-**2016-08-12**
+- [x] Option to collapse projects
+
+## 1.2
 
 - [x] Delete bin and obj folders on close
 
 ## 1.0
-
-**2016-08-02**
 
 - [x] Close open documents
 - [x] Collapse Solution Explorer
