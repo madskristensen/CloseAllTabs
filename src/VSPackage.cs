@@ -15,17 +15,15 @@ namespace CloseAllTabs
     [ProvideAutoLoad(UIContextGuids.SolutionHasMultipleProjects, PackageAutoLoadFlags.BackgroundLoad)]
     [ProvideOptionPage(typeof(Options), "Environment", Vsix.Name, 101, 102, true, new string[] { }, ProvidesLocalizedCategoryName = false)]
     [Guid(Vsix.Id)]
-    public sealed class CleanOnClosePackage : AsyncPackage
+    public sealed class CleanOnClosePackage : Package
     {
-        protected override async task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
+        protected override void Initialize()
         {
-            var dte = await GetServiceAsync(typeof(DTE)) as DTE2;
-
-            await JoinableTaskFactory.SwitchToMainThreadAsync();
+            var dte = GetService(typeof(DTE)) as DTE2;
 
             var options = (Options)GetDialogPage(typeof(Options));
 
-            CloseOpenDocuments.Initialize(dte, options);
+            CloseOpenDocuments.Initialize(this, dte, options);
             CollapseFolders.Initialize(dte, options);
             SolutionExplorerFocus.Initialize(dte, options);
             DeleteBinFolder.Initialize(dte, options);

@@ -14,6 +14,7 @@ on the official Visual Studio extension gallery.
 ## 1.3
 
 - [x] Option to collapse projects
+- [x] Keep pinned tabs open
 
 ## 1.2
 
