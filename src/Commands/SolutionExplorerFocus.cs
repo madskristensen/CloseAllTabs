@@ -30,11 +30,11 @@ namespace CloseAllTabs
             if (!_options.FocusSolutionExplorer)
                 return;
 
-            var cmd = _dte.Commands.Item("View.SolutionExplorer");
+            var solExp = _dte.Windows.Item(Constants.vsWindowKindSolutionExplorer);
 
-            if (cmd.IsAvailable)
+            if (solExp != null)
             {
-                _dte.Commands.Raise(cmd.Guid, cmd.ID, null, null);
+                solExp.Activate();
             }
         }
     }
