@@ -1,4 +1,5 @@
-﻿using EnvDTE;
+﻿using System.Linq;
+using EnvDTE;
 using EnvDTE80;
 
 namespace CloseAllTabs
@@ -45,19 +46,35 @@ namespace CloseAllTabs
 
         private void CollapseHierarchy(UIHierarchyItems hierarchy)
         {
-            foreach (UIHierarchyItem item in hierarchy)
+            foreach (var item in hierarchy.Cast<UIHierarchyItem>().Where(item => item.UIHierarchyItems.Count > 0))
             {
-                var project = item.Object as Project;
-
-                if (project == null ||
-                    (project.Kind == ProjectKinds.vsProjectKindSolutionFolder && _options.CollapseSolutionFolders) ||
-                    (project.Kind != ProjectKinds.vsProjectKindSolutionFolder && _options.CollapseProjects))
-                {
-                    item.UIHierarchyItems.Expanded = false;
-                }
-
                 CollapseHierarchy(item.UIHierarchyItems);
+
+                if (ShouldCollapse(item))
+                    item.UIHierarchyItems.Expanded = false;
             }
+        }
+
+        private bool ShouldCollapse(UIHierarchyItem item)
+        {
+            if (!item.UIHierarchyItems.Expanded)
+                return false;
+
+            var project = item.Object as Project;
+
+            // Always collapse files and folders
+            if (project == null)
+                return true;
+
+            // Collapse solution folders if enabled in settings
+            if (project.Kind == ProjectKinds.vsProjectKindSolutionFolder && _options.CollapseSolutionFolders)
+                return true;
+
+            // Collapse projects if enabled in settings
+            if (project.Kind != ProjectKinds.vsProjectKindSolutionFolder && _options.CollapseProjects)
+                return true;
+
+            return false;
         }
     }
 }
