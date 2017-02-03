@@ -16,6 +16,7 @@ namespace CloseAllTabs
 
             _solEvents = _dte.Events.SolutionEvents;
             _solEvents.Opened += Execute;
+            _solEvents.AfterClosing += Execute;
         }
 
         public static SolutionExplorerFocus Instance { get; private set; }
