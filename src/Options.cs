@@ -8,7 +8,7 @@ namespace CloseAllTabs
         // General
         [Category("General")]
         [DisplayName("Close documents")]
-        [Description("Close open all documents on close")]
+        [Description("Close all open documents on close unless they are pinned")]
         [DefaultValue(true)]
         public bool CloseDocuments { get; set; } = true;
 
