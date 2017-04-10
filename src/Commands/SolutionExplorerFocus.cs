@@ -15,7 +15,6 @@ namespace CloseAllTabs
             _options = options;
 
             _solEvents = _dte.Events.SolutionEvents;
-            _solEvents.Opened += Execute;
             _solEvents.AfterClosing += Execute;
         }
 
