@@ -18,6 +18,12 @@ namespace CloseAllTabs
         [DefaultValue(false)]
         public bool DeleteBinFolder { get; set; }
 
+        [Category("General")]
+        [DisplayName("Delete TestResults folder")]
+        [Description("Deletes the TestResults folders on close unless they are under source control")]
+        [DefaultValue(false)]
+        public bool DeleteTestResultsFolder { get; set; }
+        
         // Solution Explorer
         [Category("Solution Explorer")]
         [DisplayName("Collapse files and folders")]

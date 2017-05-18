@@ -55,6 +55,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\DeleteBase.cs" />
     <Compile Include="Commands\DeleteTestResultsFolder.cs" />
     <Compile Include="Commands\DeleteBinFolder.cs" />
     <Compile Include="Commands\ImportAttribute.cs" />
