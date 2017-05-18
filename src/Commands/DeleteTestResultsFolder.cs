@@ -8,12 +8,8 @@ using EnvDTE80;
 
 namespace CloseAllTabs
 {
-    public class DeleteTestResultsFolder
+    public class DeleteTestResultsFolder : DeleteBase
     {
-        private DTE2 _dte;
-        private Options _options;
-        private SolutionEvents _solEvents;
-
         private DeleteTestResultsFolder(DTE2 dte, Options options)
         {
             _dte = dte;
@@ -37,7 +33,7 @@ namespace CloseAllTabs
 
             try
             {
-                var root = GetRootFolder(_dte.Solution);
+                var root = GetSolutionRootFolder(_dte.Solution);
                 string testResults = Path.Combine(root, "TestResults");
                 DeleteFiles(testResults);
             }
@@ -45,27 +41,6 @@ namespace CloseAllTabs
             {
                 System.Diagnostics.Debug.Write(ex);
             }
-        }
-
-        private void DeleteFiles(params string[] folders)
-        {
-            var existingFolders = folders.Where(f => Directory.Exists(f));
-
-            foreach (var folder in existingFolders)
-            {
-                var files = Directory.EnumerateFiles(folder, "*.*", SearchOption.AllDirectories);
-
-                if (!files.Any(f => f.EndsWith(".refresh") || _dte.SourceControl.IsItemUnderSCC(f)))
-                    Directory.Delete(folder, true);
-            }
-        }
-
-        public static string GetRootFolder(Solution solution)
-        {
-            if (string.IsNullOrEmpty(solution.FullName))
-                return File.Exists(solution.FullName) ? Path.GetDirectoryName(solution.FullName) : null;
-
-            return null;
         }
     }
 }
