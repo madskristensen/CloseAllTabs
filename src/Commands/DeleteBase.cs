@@ -22,8 +22,16 @@ namespace CloseAllTabs
             {
                 var files = Directory.EnumerateFiles(folder, "*.*", SearchOption.AllDirectories);
 
-                if (!files.Any(f => f.EndsWith(".refresh") || _dte.SourceControl.IsItemUnderSCC(f)))
-                    Directory.Delete(folder, true);
+                if (!files.Any(f => f.EndsWith(".refresh") || _dte.SourceControl.IsItemUnderSCC(f))) { 
+                    try
+                    {
+                        Directory.Delete(folder, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.Write(ex);
+                    }
+                }
             }
         }
 
@@ -59,7 +67,7 @@ namespace CloseAllTabs
 
         public static string GetSolutionRootFolder(Solution solution)
         {
-            if (string.IsNullOrEmpty(solution.FullName))
+            if (!string.IsNullOrEmpty(solution.FullName))
                 return File.Exists(solution.FullName) ? Path.GetDirectoryName(solution.FullName) : null;
 
             return null;

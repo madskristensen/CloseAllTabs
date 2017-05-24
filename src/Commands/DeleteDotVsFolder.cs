@@ -34,8 +34,8 @@ namespace CloseAllTabs
             try
             {
                 var root = GetSolutionRootFolder(_dte.Solution);
-                string testResults = Path.Combine(root, ".vs");
-                DeleteFiles(testResults);
+                string dotVs = Path.Combine(root, ".vs");
+                DeleteFiles(dotVs);
             }
             catch (Exception ex)
             {
