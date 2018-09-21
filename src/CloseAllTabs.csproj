@@ -3,7 +3,6 @@
   <Import Project="..\packages\Microsoft.VSSDK.BuildTools.15.0.26201\build\Microsoft.VSSDK.BuildTools.props" Condition="Exists('..\packages\Microsoft.VSSDK.BuildTools.15.0.26201\build\Microsoft.VSSDK.BuildTools.props')" />
   <PropertyGroup>
     <MinimumVisualStudioVersion>$(VisualStudioVersion)</MinimumVisualStudioVersion>
-    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <UseCodebase>true</UseCodebase>
     <FileUpgradeFlags>
@@ -60,7 +59,6 @@
     <Compile Include="Commands\DeleteDotVsFolder.cs" />
     <Compile Include="Commands\DeleteTestResultsFolder.cs" />
     <Compile Include="Commands\DeleteBinFolder.cs" />
-    <Compile Include="Commands\ImportAttribute.cs" />
     <Compile Include="Commands\SolutionExplorerFocus.cs" />
     <Compile Include="Commands\CollapseFolders.cs" />
     <Compile Include="Commands\CloseOpenDocuments.cs" />
@@ -80,7 +78,6 @@
       <Link>Resources\LICENSE</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>

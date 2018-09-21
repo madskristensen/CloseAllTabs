@@ -8,15 +8,13 @@ namespace CloseAllTabs
     {
         private DTE2 _dte;
         private Options _options;
-        private SolutionEvents _solEvents;
 
         private CollapseFolders(DTE2 dte, Options options)
         {
             _dte = dte;
             _options = options;
 
-            _solEvents = _dte.Events.SolutionEvents;
-            _solEvents.BeforeClosing += Execute;
+            Microsoft.VisualStudio.Shell.Events.SolutionEvents.OnBeforeCloseSolution += (s, e) => Execute();
         }
 
         public static CollapseFolders Instance { get; private set; }
@@ -60,10 +58,8 @@ namespace CloseAllTabs
             if (!item.UIHierarchyItems.Expanded)
                 return false;
 
-            var project = item.Object as Project;
-
             // Always collapse files and folders
-            if (project == null)
+            if (!(item.Object is Project project))
                 return true;
 
             // Collapse solution folders if enabled in settings

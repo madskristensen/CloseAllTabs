@@ -15,8 +15,7 @@ namespace CloseAllTabs
             _dte = dte;
             _options = options;
 
-            _solEvents = _dte.Events.SolutionEvents;
-            _solEvents.BeforeClosing += Execute;
+            Microsoft.VisualStudio.Shell.Events.SolutionEvents.OnBeforeCloseSolution += (s, e) => Execute();
         }
 
         public static DeleteDotVsFolder Instance { get; private set; }
@@ -33,7 +32,7 @@ namespace CloseAllTabs
 
             try
             {
-                var root = GetSolutionRootFolder(_dte.Solution);
+                string root = GetSolutionRootFolder(_dte.Solution);
                 string dotVs = Path.Combine(root, ".vs");
                 DeleteFiles(dotVs);
             }

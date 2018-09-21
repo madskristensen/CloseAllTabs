@@ -18,9 +18,8 @@ namespace CloseAllTabs
             _serviceProvider = serviceProvider;
             _dte = dte;
             _options = options;
-            
-            var events = new SolutionEvents();
-            events.BeforeClosing += Execute;
+
+            Microsoft.VisualStudio.Shell.Events.SolutionEvents.OnBeforeCloseSolution += (s, e) => Execute();
         }
 
         public static CloseOpenDocuments Instance { get; private set; }

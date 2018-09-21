@@ -7,15 +7,13 @@ namespace CloseAllTabs
     {
         private DTE2 _dte;
         private Options _options;
-        private SolutionEvents _solEvents;
 
         private SolutionExplorerFocus(DTE2 dte, Options options)
         {
             _dte = dte;
             _options = options;
 
-            _solEvents = _dte.Events.SolutionEvents;
-            _solEvents.AfterClosing += Execute;
+            Microsoft.VisualStudio.Shell.Events.SolutionEvents.OnBeforeCloseSolution += (s, e) => Execute();
         }
 
         public static SolutionExplorerFocus Instance { get; private set; }

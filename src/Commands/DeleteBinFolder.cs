@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using EnvDTE80;
+using Microsoft.VisualStudio.Shell.Events;
 
 namespace CloseAllTabs
 {
@@ -11,8 +12,7 @@ namespace CloseAllTabs
             _dte = dte;
             _options = options;
 
-            _solEvents = _dte.Events.SolutionEvents;
-            _solEvents.BeforeClosing += Execute;
+            Microsoft.VisualStudio.Shell.Events.SolutionEvents.OnBeforeCloseSolution += (s, e) => Execute();
         }
 
         public static DeleteBinFolder Instance { get; private set; }
@@ -29,9 +29,9 @@ namespace CloseAllTabs
 
             try
             {
-                foreach (var project in GetAllProjects())
+                foreach (EnvDTE.Project project in GetAllProjects())
                 {
-                    var root = GetProjectRootFolder(project);
+                    string root = GetProjectRootFolder(project);
 
                     if (root == null)
                         return;

@@ -12,15 +12,14 @@ namespace CloseAllTabs
     {
         protected DTE2 _dte;
         protected Options _options;
-        protected SolutionEvents _solEvents;
 
         protected void DeleteFiles(params string[] folders)
         {
-            var existingFolders = folders.Where(f => Directory.Exists(f));
+            IEnumerable<string> existingFolders = folders.Where(f => Directory.Exists(f));
 
-            foreach (var folder in existingFolders)
+            foreach (string folder in existingFolders)
             {
-                var files = Directory.EnumerateFiles(folder, "*.*", SearchOption.AllDirectories);
+                IEnumerable<string> files = Directory.EnumerateFiles(folder, "*.*", SearchOption.AllDirectories);
 
                 if (!files.Any(f => f.EndsWith(".refresh") || _dte.SourceControl.IsItemUnderSCC(f))) { 
                     try
