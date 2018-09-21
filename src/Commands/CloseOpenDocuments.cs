@@ -9,24 +9,23 @@ namespace CloseAllTabs
 {
     public class CloseOpenDocuments
     {
-        private IServiceProvider _serviceProvider;
+        private readonly IServiceProvider _serviceProvider;
         private DTE2 _dte;
         private Options _options;
-        private SolutionEvents _solEvents;
 
         private CloseOpenDocuments(IServiceProvider serviceProvider, DTE2 dte, Options options)
         {
             _serviceProvider = serviceProvider;
             _dte = dte;
             _options = options;
-
-            _solEvents = _dte.Events.SolutionEvents;
-            _solEvents.BeforeClosing += Execute;
+            
+            var events = new SolutionEvents();
+            events.BeforeClosing += Execute;
         }
 
         public static CloseOpenDocuments Instance { get; private set; }
 
-        public static void Initialize(IServiceProvider serviceProvider, DTE2 dte, Options options)
+        public static void Initialize(Package serviceProvider, DTE2 dte, Options options)
         {
             Instance = new CloseOpenDocuments(serviceProvider, dte, options);
         }
@@ -38,20 +37,14 @@ namespace CloseAllTabs
 
             foreach (Document document in _dte.Documents)
             {
-                var filePath = document.FullName;
-
-                IVsUIHierarchy hierarchy;
-                uint itemId;
-                IVsWindowFrame frame = null;
+                string filePath = document.FullName;
 
                 // Don't close pinned files
-                if (VsShellUtilities.IsDocumentOpen(_serviceProvider, filePath, VSConstants.LOGVIEWID_Primary, out hierarchy, out itemId, out frame))
+                if (VsShellUtilities.IsDocumentOpen(_serviceProvider, filePath, VSConstants.LOGVIEWID_Primary, out IVsUIHierarchy hierarchy, out uint itemId, out IVsWindowFrame frame))
                 {
-                    object propVal;
-                    ErrorHandler.ThrowOnFailure(frame.GetProperty((int)__VSFPROPID5.VSFPROPID_IsPinned, out propVal));
+                    ErrorHandler.ThrowOnFailure(frame.GetProperty((int)__VSFPROPID5.VSFPROPID_IsPinned, out object propVal));
 
-                    bool isPinned;
-                    if (bool.TryParse(propVal.ToString(), out isPinned) && !isPinned)
+                    if (bool.TryParse(propVal.ToString(), out bool isPinned) && !isPinned)
                     {
                         document.Close(vsSaveChanges.vsSaveChangesPrompt);
                     }

@@ -31,7 +31,7 @@ namespace CloseAllTabs
             if (!_options.CollapseOn)
                 return;
 
-            var hierarchy = _dte.ToolWindows.SolutionExplorer.UIHierarchyItems;
+            UIHierarchyItems hierarchy = _dte.ToolWindows.SolutionExplorer.UIHierarchyItems;
 
             try
             {
@@ -46,7 +46,7 @@ namespace CloseAllTabs
 
         private void CollapseHierarchy(UIHierarchyItems hierarchy)
         {
-            foreach (var item in hierarchy.Cast<UIHierarchyItem>().Where(item => item.UIHierarchyItems.Count > 0))
+            foreach (UIHierarchyItem item in hierarchy.Cast<UIHierarchyItem>().Where(item => item.UIHierarchyItems.Count > 0))
             {
                 CollapseHierarchy(item.UIHierarchyItems);
 

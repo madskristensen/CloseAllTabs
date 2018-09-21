@@ -30,7 +30,7 @@ namespace CloseAllTabs
             if (!_options.FocusSolutionExplorer)
                 return;
 
-            var solExp = _dte.Windows.Item(Constants.vsWindowKindSolutionExplorer);
+            Window solExp = _dte.Windows.Item(Constants.vsWindowKindSolutionExplorer);
 
             if (solExp != null)
             {
