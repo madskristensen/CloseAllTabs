@@ -57,6 +57,8 @@
   <ItemGroup>
     <Compile Include="Commands\DeleteBase.cs" />
     <Compile Include="Commands\DeleteDotVsFolder.cs" />
+    <Compile Include="Commands\DeleteIISExpressTraceLogFilesFolder.cs" />
+    <Compile Include="Commands\DeleteIISExpressLogsFolder.cs" />
     <Compile Include="Commands\DeleteTestResultsFolder.cs" />
     <Compile Include="Commands\DeleteBinFolder.cs" />
     <Compile Include="Commands\SolutionExplorerFocus.cs" />

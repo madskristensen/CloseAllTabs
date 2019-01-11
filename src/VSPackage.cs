@@ -1,10 +1,10 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using System.Threading;
-using EnvDTE;
+﻿using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using System;
+using System.Runtime.InteropServices;
+using System.Threading;
 using task = System.Threading.Tasks.Task;
 
 namespace CloseAllTabs
@@ -30,6 +30,8 @@ namespace CloseAllTabs
             DeleteBinFolder.Initialize(dte, options);
             DeleteTestResultsFolder.Initialize(dte, options);
             DeleteDotVsFolder.Initialize(dte, options);
+            DeleteIISExpressLogsFolder.Initialize(dte, options);
+            DeleteIISExpressTraceLogFilesFolder.Initialize(dte, options);
         }
     }
 }

@@ -1,11 +1,10 @@
-﻿using System;
+﻿using EnvDTE;
+using EnvDTE80;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
-using EnvDTE;
-using EnvDTE80;
-
 namespace CloseAllTabs
 {
     public class DeleteBase
@@ -21,7 +20,8 @@ namespace CloseAllTabs
             {
                 IEnumerable<string> files = Directory.EnumerateFiles(folder, "*.*", SearchOption.AllDirectories);
 
-                if (!files.Any(f => f.EndsWith(".refresh") || _dte.SourceControl.IsItemUnderSCC(f))) { 
+                if (!files.Any(f => f.EndsWith(".refresh") || _dte.SourceControl.IsItemUnderSCC(f)))
+                {
                     try
                     {
                         Directory.Delete(folder, true);
@@ -107,6 +107,18 @@ namespace CloseAllTabs
                 return Path.GetDirectoryName(fullPath);
 
             return null;
+        }
+
+        public static string GetIISExpressLogsFolder()
+        {
+            string fullPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "IISExpress", "Logs");
+            return Directory.Exists(fullPath) ? fullPath : null;
+        }
+
+        public static string GetIISExpressTraceLogFilesFolder()
+        {
+            string fullPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "IISExpress", "TraceLogFiles");
+            return Directory.Exists(fullPath) ? fullPath : null;
         }
     }
 }
