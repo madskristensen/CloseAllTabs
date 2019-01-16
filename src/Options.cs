@@ -1,5 +1,5 @@
-﻿using System.ComponentModel;
-using Microsoft.VisualStudio.Shell;
+﻿using Microsoft.VisualStudio.Shell;
+using System.ComponentModel;
 
 namespace CloseAllTabs
 {
@@ -24,12 +24,24 @@ namespace CloseAllTabs
         [DefaultValue(false)]
         public bool DeleteTestResultsFolder { get; set; }
 
-
         [Category("General")]
         [DisplayName("Delete .vs folder")]
         [Description("Deletes the .vs folders on close unless they are under source control")]
         [DefaultValue(false)]
         public bool DeleteDotVsFolder { get; set; }
+
+        // IIS Express
+        [Category("IIS Express")]
+        [DisplayName("Delete Logs folder")]
+        [Description("Deletes the Logs folders of IIS Express")]
+        [DefaultValue(false)]
+        public bool DeleteIISExpressLogsFolder { get; set; }
+
+        [Category("IIS Express")]
+        [DisplayName("Delete TraceLogFiles folder")]
+        [Description("Deletes the TraceLogFiles folders of IIS Express")]
+        [DefaultValue(false)]
+        public bool DeleteIISExpressTraceLogFilesFolder { get; set; }
 
         // Solution Explorer
         [Category("Solution Explorer")]
@@ -55,5 +67,5 @@ namespace CloseAllTabs
         [Description("Makes sure Solution Explorer is visible when a solution is opened")]
         [DefaultValue(false)]
         public bool FocusSolutionExplorer { get; set; }
-}
+    }
 }
