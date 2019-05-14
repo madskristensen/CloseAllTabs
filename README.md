@@ -69,7 +69,7 @@ dialog.
 ![Options](art/options.png)
 
 ## Contribute
-Check out the [contribution guidelines](.github./CONTRIBUTING.md)
+Check out the [contribution guidelines](.github/CONTRIBUTING.md)
 if you want to contribute to this project.
 
 For cloning and building this project yourself, make sure
