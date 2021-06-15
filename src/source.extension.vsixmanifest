@@ -5,14 +5,17 @@
     <DisplayName>Clean Solution</DisplayName>
     <Description xml:space="preserve">Cleans up the solution for the next time you open it. Closes open documents and collapses folders automatically when a solution is being closed. </Description>
     <MoreInfo>https://github.com/madskristensen/CloseAllTabs</MoreInfo>
-    <License>Resources/LICENSE</License>
+    <License>Resources\LICENSE</License>
     <ReleaseNotes>https://github.com/madskristensen/CloseAllTabs/blob/master/CHANGELOG.md</ReleaseNotes>
     <Icon>Resources\Icon.png</Icon>
-    <PreviewImage>Resources\Preview.png</PreviewImage>
+    <PreviewImage>Resources\Icon.png</PreviewImage>
     <Tags>tabs, cleanup, collapse</Tags>
   </Metadata>
   <Installation>
-    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0,17.0)" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0,17.0)" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
   </Installation>
   <Prerequisites>
     <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,)" DisplayName="Visual Studio core editor" />
